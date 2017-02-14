@@ -33,11 +33,9 @@ def start():
     executar('systemctl start docker.socket')
     executar('systemctl start docker.service')
     
-
 def stop():
     executar('systemctl stop docker.socket')
     executar('systemctl stop docker.service')
-
 
 def init():
     container = get_container()
@@ -53,17 +51,14 @@ def init():
 
     executar('docker start ' + container )
 
-
 def is_root():
     user = os.getenv("SUDO_USER")
     if user is None:
         args.log=True
         imprime('This program need \'sudo\'')
         exit()
-
-
-
-
+        
+        
 if __name__ == '__main__':
 
      parser = argparse.ArgumentParser()
